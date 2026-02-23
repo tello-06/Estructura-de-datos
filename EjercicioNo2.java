@@ -1,3 +1,4 @@
+//Calculadora de una tienda
 public class EjercicioNo2 {
     public static void main(String[] args) {
 
