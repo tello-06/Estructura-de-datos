@@ -1,7 +1,13 @@
-//Ejercicio Cajero de Supermercado
+// Ejercicio Cajero de Supermercado
+
+// Un cajero escanea un producto con el código de barras 770123. El sistema tiene un arreglo desordenado con los códigos de los productos disponibles en la estantería actual.
+
+// El Problema: Debes recorrer la lista para verificar si el producto existe y en qué posición de la estantería se encuentra.
+// Algoritmo a usar: Búsqueda Lineal. Es el ideal porque los productos en la estantería no tienen un orden numérico específico.
+
 import java.util.Scanner;
 
-public class Cajero_De_Supermercado {
+public class EjercicioNo1 {
     public static void main(String[] args){
 
         Scanner datos = new Scanner(System.in);
@@ -27,8 +33,5 @@ public class Cajero_De_Supermercado {
         } else {
             System.out.println("Producto no encontrado en la estantería");
         }
-
-        datos.close();
-
     }
 }
