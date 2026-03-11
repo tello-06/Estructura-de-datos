@@ -26,14 +26,12 @@ public class Ejercicio_No2 {
             System.out.print("Ingrese el codigo ISBN del libro No " + (i + 1) + ": ");
             int num = datos.nextInt();
 
-            // posición donde se insertará (desde la derecha)
-            int pos = cantidad - 1 - i;
+            int posicion = cantidad - 1 - i;
 
-            ISBN[pos] = num;
+            ISBN[posicion] = num;
 
-            int j = pos;
+            int j = posicion;
 
-            // ordenar hacia la derecha
             while (j < cantidad - 1 && ISBN[j] > ISBN[j + 1]) {
 
                 int temp = ISBN[j];
