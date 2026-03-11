@@ -20,7 +20,11 @@ public class Ejercicio_No5 {
 
         int array[] = new int[6];
 
-        for (int i = 0; i < 6; i++) {
+        System.out.print("Cuantos numeros desea ingresar: ");
+        int cantidad = datos.nextInt();
+        datos.nextLine();
+
+        for (int i = 0; i < cantidad; i++) {
             System.out.print("Ingrese el número No " + (i + 1) + ": ");
             array[i] = datos.nextInt();
         }
@@ -31,7 +35,6 @@ public class Ejercicio_No5 {
         int swaps = 0;
         int movimientos = 0;
 
-        // Selection Sort
         for (int i = 0; i < seleccion.length - 1; i++) {
 
             int min = i;
