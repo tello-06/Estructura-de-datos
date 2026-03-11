@@ -18,7 +18,7 @@ public class Ejercicio_No1 {
         System.out.print("Ingrese la cantidad de corredores: ");
         int n = datos.nextInt();
 
-        double tiempos[] = new double[n];
+        double[] tiempos = new double[n];
 
         for (int i = 0; i < n; i++) {
             System.out.print("Ingrese el tiempo del corredor No " + (i + 1) + ": ");

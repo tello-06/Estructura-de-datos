@@ -19,7 +19,7 @@ public class Ejercicio_No4 {
         int cantidad = datos.nextInt();
         datos.nextLine();
 
-        String nombres[] = new String[cantidad];
+        String[] nombres = new String[cantidad];
 
         for (int i = 0; i < cantidad; i++) {
             System.out.print("Ingrese el nombre del estudiante: "+ (i+1) + ": ");

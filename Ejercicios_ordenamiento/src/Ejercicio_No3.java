@@ -20,7 +20,7 @@ public class Ejercicio_No3 {
         System.out.print("Cantidad de paquetes: ");
         int cantidad = datos.nextInt();
 
-        int pesos[] = new int[cantidad];
+        int[] pesos = new int[cantidad];
 
         for (int i = 0; i < cantidad; i++) {
             System.out.print("Ingrese el peso del paquete No " + (i + 1) + ": ");

@@ -18,11 +18,11 @@ public class Ejercicio_No5 {
         
         Scanner datos = new Scanner(System.in);
 
-        int array[] = new int[6];
-
         System.out.print("Cuantos numeros desea ingresar: ");
         int cantidad = datos.nextInt();
         datos.nextLine();
+
+        int[] array = new int[cantidad];
 
         for (int i = 0; i < cantidad; i++) {
             System.out.print("Ingrese el número No " + (i + 1) + ": ");
