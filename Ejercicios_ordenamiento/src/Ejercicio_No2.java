@@ -19,26 +19,34 @@ public class Ejercicio_No2 {
         System.out.print("Ingrese la cantidad de libros: ");
         int cantidad = datos.nextInt();
 
-        int ISBN[] = new int[cantidad];
+        int[] ISBN = new int[cantidad];
 
         for (int i = 0; i < cantidad; i++) {
-            System.out.print(" ingrese el codigo ISBN del libro No " + (i + 1) + ": ");
-            ISBN[i] = datos.nextInt();
-        }
 
-        for (int i = 1; i < cantidad; i++) {
+            System.out.print("Ingrese el codigo ISBN del libro No " + (i + 1) + ": ");
+            int num = datos.nextInt();
 
-            int num = ISBN[i];
-            int j = i - 1;
+            // posición donde se insertará (desde la derecha)
+            int pos = cantidad - 1 - i;
 
-            while (j >= 0 && ISBN[j] > num) {
-                ISBN[j + 1] = ISBN[j];
-                j--;
+            ISBN[pos] = num;
+
+            int j = pos;
+
+            // ordenar hacia la derecha
+            while (j < cantidad - 1 && ISBN[j] > ISBN[j + 1]) {
+
+                int temp = ISBN[j];
+                ISBN[j] = ISBN[j + 1];
+                ISBN[j + 1] = temp;
+
+                j++;
             }
-
-            ISBN[j + 1] = num;
 
             System.out.println(Arrays.toString(ISBN));
         }
+
+        System.out.println(" La estanteria quedo organizada asi:");
+        System.out.println(Arrays.toString(ISBN));
     }
 }
