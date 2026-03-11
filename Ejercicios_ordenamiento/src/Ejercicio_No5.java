@@ -18,15 +18,15 @@ public class Ejercicio_No5 {
         
         Scanner datos = new Scanner(System.in);
 
-        int arr[] = new int[6];
+        int array[] = new int[6];
 
         for (int i = 0; i < 6; i++) {
-            System.out.print("Ingrese número " + (i + 1) + ": ");
-            arr[i] = datos.nextInt();
+            System.out.print("Ingrese el número No " + (i + 1) + ": ");
+            array[i] = datos.nextInt();
         }
 
-        int seleccion[] = arr.clone();
-        int insercion[] = arr.clone();
+        int seleccion[] = array.clone();
+        int insercion[] = array.clone();
 
         int swaps = 0;
         int movimientos = 0;
@@ -50,7 +50,6 @@ public class Ejercicio_No5 {
             }
         }
 
-        // Insertion Sort
         for (int i = 1; i < insercion.length; i++) {
 
             int key = insercion[i];
