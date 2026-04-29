@@ -9,29 +9,72 @@
 // Reto: Implementa los métodos arriba(), abajo(), mostrarCursor() y eliminarActual().
 //  Simula: agrega 5 comandos, navega 3 veces hacia arriba, elimina el comando actual, navega una vez hacia abajo y muestra el historial completo con el cursor marcado.
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
+        Scanner datos = new Scanner(System.in);
+        int opcion;
 
         HistorialTerminal historial = new HistorialTerminal();
 
-        historial.agregarComando(new Comando("ls", true, "/home"));
-        historial.agregarComando(new Comando("cd documentos", true, "/home"));
-        historial.agregarComando(new Comando("mkdir pruebas", true, "/home/docs"));
-        historial.agregarComando(new Comando("rm archivo.txt", false, "/home/docs"));
-        historial.agregarComando(new Comando("nano clave.txt", true, "/home/docs"));
+        do {
+            System.out.println("\nHistorial de Comandos");
+            System.out.println("1. Agregar Comando");
+            System.out.println("2. Flecha Arriba");
+            System.out.println("3. Flecha Abajo");
+            System.out.println("4. Mostrar Cursor");
+            System.out.println("5. Eliminar Actual");
+            System.out.println("6. Mostrar Historial");
+            System.out.println("0. Salir");
+            System.out.print("Elige una opción: ");
 
-        System.out.println("Subir 3 veces: ");
-        historial.arriba();
-        historial.arriba();
-        historial.arriba();
+            opcion = datos.nextInt();
+            System.out.println();
 
-        System.out.println("\nEliminar actual: ");
-        historial.eliminarActual();
+            switch (opcion) {
+                case 1:
+                    datos.nextLine();
+                    System.out.print("Texto: ");
+                    String texto = datos.nextLine();
 
-        System.out.println("\nBajar una vez: ");
-        historial.abajo();
+                    System.out.print("Exitoso (true/false): ");
+                    boolean exitoso = datos.nextBoolean();
 
-        System.out.println("\nHistorial completo: ");
-        historial.mostrarHistorial();
+                    datos.nextLine();
+                    System.out.print("Directorio: ");
+                    String dir = datos.nextLine();
+
+                    historial.agregarComando(new Comando(texto, exitoso, dir));
+                    break;
+
+                case 2:
+                    historial.arriba();
+                    break;
+
+                case 3:
+                    historial.abajo();
+                    break;
+
+                case 4:
+                    historial.mostrarCursor();
+                    break;
+
+                case 5:
+                    historial.eliminarActual();
+                    break;
+
+                case 6:
+                    historial.mostrarHistorial();
+                    break;
+
+                case 0:
+                    System.out.println("fin");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida, intente de nuevo");
+            }
+        } while (opcion != 0);
     }
 }

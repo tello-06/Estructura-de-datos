@@ -9,34 +9,69 @@
 //  recorre todas las fotos marcando con [★] las favoritas y con [▶] la foto actual. Simula: carga 5 fotos, avanza dos veces,
 //   marca la actual como favorita, retrocede una, elimina esa foto y muestra el estado final de la galería.
 
+import java.util.Scanner;
+
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+        Scanner datos = new Scanner(System.in);
+        int opcion;
+
         GaleriaFotos galeria = new GaleriaFotos();
 
-        galeria.agregarFoto(new Foto("Foto 1", "2026-01-01"));
-        galeria.agregarFoto(new Foto("Foto 2", "2026-01-02"));
-        galeria.agregarFoto(new Foto("Foto 3", "2026-01-03"));
-        galeria.agregarFoto(new Foto("Foto 4", "2026-01-04"));
-        galeria.agregarFoto(new Foto("Foto 5", "2026-01-05"));
+        do {
+            System.out.println("\nGalería de Fotos");
+            System.out.println("1. Agregar Foto");
+            System.out.println("2. Siguiente");
+            System.out.println("3. Anterior");
+            System.out.println("4. Marcar/Desmarcar Favorita");
+            System.out.println("5. Eliminar Foto Actual");
+            System.out.println("6. Mostrar Galería");
+            System.out.println("0. Salir");
+            System.out.print("Elige una opción: ");
 
-        System.out.println("Estado inicial");
-        galeria.mostrarGaleria();
+            opcion = datos.nextInt();
+            System.out.println();
 
-        System.out.println("\nAvanzar 2 veces: ");
-        galeria.siguiente();
-        galeria.siguiente();
+            switch (opcion) {
+                case 1:
+                    datos.nextLine();
 
-        System.out.println("\nMarcar como favorita: ");
-        galeria.toggleFavorita();
+                    System.out.print("Título: ");
+                    String titulo = datos.nextLine();
 
-        System.out.println("\nRetroceder 1 vez: ");
-        galeria.anterior();
+                    System.out.print("Fecha: ");
+                    String fecha = datos.nextLine();
 
-        System.out.println("\nEliminar actual: ");
-        galeria.eliminarActual();
+                    galeria.agregarFoto(new Foto(titulo, fecha));
+                    break;
 
-        System.out.println("\nEstado final: ");
-        galeria.mostrarGaleria();
-    }
+                case 2:
+                    galeria.siguiente();
+                    break;
+
+                case 3:
+                    galeria.anterior();
+                    break;
+
+                case 4:
+                    galeria.toggleFavorita();
+                    break;
+
+                case 5:
+                    galeria.eliminarActual();
+                    break;
+
+                case 6:
+                    galeria.mostrarGaleria();
+                    break;
+
+                case 0:
+                    System.out.println("fin");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida, intente de nuevo");
+            }
+        } while (opcion != 0);
     }
 }
